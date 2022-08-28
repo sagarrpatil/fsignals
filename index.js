@@ -41,8 +41,16 @@ nzdusdfunction();
 nzdjpyfunction();
 gbpaudfunction();
 gbpjpyfunction();
+timeCapture();
 }, 4000);
 
+
+function timeCapture(){
+ var time= moment().utcOffset("+05:30").format("YYYY-MM-DD, hh:mm:ss")
+ database.ref('/EURUSD/time').set({
+  time:time
+})
+}
 
 function eurusdfunction(){
 axios.get("https://in.investing.com/currencies/eur-usd-technical?timeFrame=60",{
